@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string N;
+    getline(cin, N);  // Read the input string N
+
+    // Iterate over the string in reverse
+    for (int i = N.size() - 1; i >= 0; i--) {
+        // Check if the character is a letter (either lowercase or uppercase)
+        if ((N[i] >= 'a' && N[i] <= 'z') || (N[i] >= 'A' && N[i] <= 'Z')) {
+            char last_digit = N[i];
+
+            // Check if the character is a vowel (case-insensitive)
+            if (last_digit == 'a' || last_digit == 'e' || last_digit == 'i' || 
+                last_digit == 'o' || last_digit == 'u' || last_digit == 'y' ||
+                last_digit == 'A' || last_digit == 'E' || last_digit == 'I' || 
+                last_digit == 'O' || last_digit == 'U' || last_digit == 'Y') {
+                cout << "YES" << endl;  // If vowel, print YES
+            } else {
+                cout << "NO" << endl;  // If consonant, print NO
+            }
+            return 0;  // Exit after processing the first valid letter
+        }
+    }
+    return 0;  // If no valid letter found, the program ends without output
+}
