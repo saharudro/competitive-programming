@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;  // Input number of test cases
+
+    while (t--) {
+        int n, a[1000];
+        cin >> n;  // Input the size of the array
+
+        int even = 0, odd = 0;
+
+        // Input the array elements
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+        }
+
+        // Count the number of even and odd elements
+        for (int i = 0; i < n; i++) {
+            if (a[i] % 2 == 0) {
+                even = 1;
+            } else {
+                odd = 1;
+            }
+        }
+
+        // If both even and odd numbers exist, output "NO"
+        if (even && odd) {
+            cout << "NO\n";
+        } else {
+            cout << "YES\n";
+        }
+    }
+
+    return 0;
+}
