@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int sequence[100];
+
+    // Input the sequence
+    for (int i = 0; i < n; i++) {
+        cin >> sequence[i];
+    }
+
+    // Sort the sequence
+    sort(sequence, sequence + n);
+
+    int smallest = sequence[0];
+
+    // Find the first element greater than the smallest
+    for (int i = 1; i < n; i++) {
+        if (sequence[i] > smallest) {
+            cout << sequence[i] << endl;
+            return 0;
+        }
+    }
+
+    // If no such element is found
+    cout << "NO" << endl;
+    return 0;
+}
