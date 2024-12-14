@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+
+    while (true) {
+        // Iterate through all the walruses using a for loop
+        for (int i = 1; i <= n; i++) {
+            if (m < i) {
+                // If not enough chips for the current walrus, print remaining chips and exit
+                cout << m << endl;
+                return 0;
+            }
+            m -= i; // Deduct chips given to the current walrus
+        }
+    }
+
+    return 0;
+}
