@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N, c = 2;
+    cin >> N;
+
+    // Output the first value of c
+    cout << c;
+
+    // Loop from 2 to N-1
+    for (int i = 2; i < N; i++) {
+        c += i; // Increment c by the current value of i
+        if (c > N) {
+            c -= N; // If c exceeds N, subtract N to keep it within bounds
+        }
+        cout << " " << c; // Output the current value of c
+    }
+
+    return 0;
+}
