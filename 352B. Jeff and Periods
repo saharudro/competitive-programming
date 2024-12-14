@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    int n;
+    cin >> n;
+ 
+    map<int, vector<int>> positions; // Maps value to its positions in the sequence
+ 
+    for (int i = 0; i < n; ++i) {
+        int value;
+        cin >> value;
+        positions[value].push_back(i);
+    }
+ 
+    vector<pair<int, int>> results; // To store valid (x, px) pairs
+ 
+    for (const auto &entry : positions) {
+        int x = entry.first;
+        const vector<int> &pos = entry.second;
+ 
+        if (pos.size() == 1) {
+            // If x occurs exactly once, px = 0
+            results.push_back({x, 0});
+        } else {
+            // Check if positions form an arithmetic progression
+            int diff = pos[1] - pos[0];
+            bool isArithmetic = true;
+ 
+            for (size_t i = 2; i < pos.size(); ++i) {
+                if (pos[i] - pos[i - 1] != diff) {
+                    isArithmetic = false;
+                    break;
+                }
+            }
+ 
+            if (isArithmetic) {
+                results.push_back({x, diff});
+            }
+        }
+    }
+ 
+    // Output the results
+    cout << results.size() << endl;
+    for (const auto &result : results) {
+        cout << result.first << " " << result.second << endl;
+    }
+ 
+    return 0;
+}
