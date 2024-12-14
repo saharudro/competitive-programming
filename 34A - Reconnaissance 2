@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int heights[100];
+    for (int i = 0; i < n; ++i) {
+        cin >> heights[i];
+    }
+
+    int minDifference = 1001; // Initialize to a value greater than the maximum possible difference
+    int soldier1 = 0, soldier2 = 0;
+
+    // Iterate through all pairs of adjacent soldiers
+    for (int i = 0; i < n; ++i) {
+        int next = (i + 1) % n; // Wrap around to the first soldier for the last pair
+        int difference = abs(heights[i] - heights[next]);
+
+        if (difference < minDifference) {
+            minDifference = difference;
+            soldier1 = i + 1;      // Store 1-based index of the first soldier
+            soldier2 = next + 1;   // Store 1-based index of the next soldier
+        }
+    }
+
+    // Output the indices of the two soldiers with the smallest height difference
+    cout << soldier1 << " " << soldier2 << endl;
+    return 0;
+}
