@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        cin >> n;
+
+        int freq[21] = {0}; // Frequency array for numbers 1 to n (1 ≤ a[i] ≤ n)
+        int a;
+
+        // Count frequencies
+        for (int i = 0; i < n; i++) {
+            cin >> a;
+            freq[a]++;
+        }
+
+        // Calculate maximum score
+        int score = 0;
+        for (int i = 1; i <= n; i++) {
+            score += freq[i] / 2;
+        }
+
+        cout << score << endl;
+    }
+
+    return 0;
+}
