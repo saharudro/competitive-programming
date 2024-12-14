@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+    int dot;
+
+    // Find the position of the decimal point
+    for (int i = 0; i < s.size(); i++) {
+        if (s[i] == '.') {
+            dot = i;
+            break;
+        }
+    }
+
+    // Check if rounding up or special case
+    if (s[dot - 1] == '9') {
+        cout << "GOTO Vasilisa.";
+        return 0;
+    }
+
+    // Round up if the digit after the decimal point is >= 5
+    if (s[dot + 1] >= '5') {
+        s[dot - 1]++;
+    }
+
+    // Print the number up to the decimal point
+    for (int i = 0; i < dot; i++) {
+        cout << s[i];
+    }
+
+    return 0;
+}
