@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n, a, count1 = 0, extra0 = 0, extra0max = -1;
+    cin >> n;
+
+    while (n--) {
+        cin >> a;
+        if (a == 1) {
+            // Increment count1 for each '1'
+            count1 += 1;
+
+            // Decrease extra0 if there are extra 0's available
+            if (extra0 > 0) {
+                extra0 -= 1;
+            }
+        } else {
+            // Increment extra0 for each '0'
+            extra0 += 1;
+
+            // Track the maximum number of consecutive '0's
+            if (extra0 > extra0max) {
+                extra0max = extra0;
+            }
+        }
+    }
+
+    // Output the result as the sum of count1 and the maximum consecutive '0's
+    cout << count1 + extra0max << endl;
+
+    return 0;
+}
