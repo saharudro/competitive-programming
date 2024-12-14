@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string N;
+    cin >> N;  // Input the string N
+    
+    int countupp = 0, countlow = 0;
+
+    // Count the number of uppercase and lowercase letters
+    for (int i = 0; i < N.size(); i++) {
+        if (N[i] >= 'a' && N[i] <= 'z') {
+            countlow++;
+        }
+        if (N[i] >= 'A' && N[i] <= 'Z') {
+            countupp++;
+        }
+    }
+
+    // If there are more uppercase letters, convert the string to uppercase
+    if (countupp > countlow) {
+        for (int i = 0; i < N.size(); i++) {
+            if (N[i] >= 'a' && N[i] <= 'z') {
+                N[i] -= 32;  // Convert lowercase to uppercase
+            }
+        }
+    }
+    // If there are more or equal lowercase letters, convert the string to lowercase
+    else {
+        for (int i = 0; i < N.size(); i++) {
+            if (N[i] >= 'A' && N[i] <= 'Z') {
+                N[i] += 32;  // Convert uppercase to lowercase
+            }
+        }
+    }
+
+    // Output the modified string
+    cout << N << endl;
+
+    return 0;
+}
