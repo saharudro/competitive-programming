@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int M, N;
+    cin >> M >> N;  // Read the dimensions of the board (M x N)
+
+    // Calculate the total number of squares on the board
+    int board = M * N;
+
+    // Calculate the maximum number of 2x1 dominoes that can fit on the board
+    int domino = board / 2;
+
+    // Output the result (number of dominoes)
+    cout << domino << endl;
+
+    return 0;
+}
