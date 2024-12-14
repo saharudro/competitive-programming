@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s, t;
+    
+    // Input strings s and t
+    cin >> s >> t;
+
+    // Reverse string t
+    reverse(t.begin(), t.end());
+
+    // Check if the reversed t is equal to s
+    if (s == t) {
+        cout << "YES";
+    } else {
+        cout << "NO";
+    }
+
+    return 0;
+}
