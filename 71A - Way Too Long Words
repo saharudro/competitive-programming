@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int T;
+    string s;
+    cin >> T;  // Input the number of test cases
+
+    // Process each test case
+    while (T--) {
+        cin >> s;  // Input the string for the current test case
+
+        // If the length of the string is greater than 10, shorten it
+        if (s.length() > 10) {
+            // Output the first character, followed by the number of characters in between, and then the last character
+            cout << s[0] << s.length() - 2 << s[s.length() - 1] << endl;
+        }
+        else {
+            // If the length is 10 or less, just output the string as it is
+            cout << s << endl;
+        }
+    }
+
+    return 0;
+}
