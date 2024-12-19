@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+string upperTOLower(const string &s) {
+    string result = s;
+    for (size_t i = 0; i < result.size(); ++i) {
+        if (result[i] >= 'A' && result[i] <= 'Z') {
+            result[i] = result[i] + 32;
+        }
+    }
+    return result;
+}
+ 
+int main() {
+    string s1, s2;
+    cin >> s1 >> s2;
+ 
+    s1 = upperTOLower(s1);
+    s2 = upperTOLower(s2);
+ 
+    if (s1 < s2) 
+    {
+        cout << -1 << endl;
+    } 
+    else if (s1 > s2)
+    {
+        cout << 1 << endl;
+    } 
+    else
+    {
+        cout << 0 << endl;
+    }
+ 
+    return 0;
+}
+   // transform(s1.begin(), s1.end(), s1.begin(), ::tolower);
+   // transform(s2.begin(), s2.end(), s2.begin(), ::tolower);
+   // cout << strcmp(s1.c_str(), s2.c_str()) << endl;
