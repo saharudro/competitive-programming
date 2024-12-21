@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+ 
+bool canUnlock(int x) {
+    while (x > 0) {
+        if (x % 100 == 33) {
+            x /= 100; // Remove two consecutive 3s
+        } else if (x >= 33) {
+            x -= 33; // Subtract 33
+        } else {
+            return false; // If neither operation is possible, return false
+        }
+    }
+    return x == 0;
+}
+ 
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int x;
+        cin >> x;
+        if (canUnlock(x)) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+    return 0;
+}
