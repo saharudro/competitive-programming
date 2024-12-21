@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    int n;
+    cin >> n;
+    int a[n], minN = 1000, maxN = 0, mini = 0, maxi = 0;
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> a[i];
+        if (a[i] > maxN)
+        {
+            maxN = a[i];
+            maxi = i;
+        }
+        if (a[i] <= minN)
+        {
+            minN = a[i];
+            mini = i;
+        }
+    }
+    cout << maxi + (n - 1) - mini - (mini < maxi ? 1 : 0) << endl;
+    return 0;
+}
