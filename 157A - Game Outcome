@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    int n;
+    cin >> n;
+    
+    vector<vector<int>> matrix(n, vector<int>(n));
+    vector<int> rowSum(n, 0), colSum(n, 0);
+    
+    // Input the matrix and compute row sums and column sums
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> matrix[i][j];
+            rowSum[i] += matrix[i][j];
+            colSum[j] += matrix[i][j];
+        }
+    }
+    
+    int winningCount = 0;
+    
+    // Check for winning squares
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (colSum[j] > rowSum[i]) {
+                winningCount++;
+            }
+        }
+    }
+    
+    cout << winningCount << endl;
+    return 0;
+}
